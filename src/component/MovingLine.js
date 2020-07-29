@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {WidthConstant} from "../constants/WidthConstant";
 
 const MovingLine = () => {
-    const { duration, setDuration } = useContext(DurationContext);
+    const {duration, setDuration} = useContext(DurationContext);
     const dispatch = useDispatch();
 
     const [percent, setPercent] = useState(0);
@@ -26,7 +26,7 @@ const MovingLine = () => {
         const audioTime = waveTime * duration;
         const second = Math.floor(audioTime);
         const dSecond = Math.round((audioTime - Math.floor(audioTime)) * 10) * 100;
-        dispatch(actions.set({ seco: second, dse: dSecond }));
+        dispatch(actions.set({seco: second, dse: dSecond}));
     };
     return (
         <div
@@ -39,7 +39,7 @@ const MovingLine = () => {
                 position: "absolute",
                 top: "172px",
                 left: "170px",
-                cursor:"pointer"
+                cursor: "pointer"
             }}
             onClick={getWaveTime}
         >

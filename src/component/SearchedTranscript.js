@@ -1,9 +1,8 @@
-import React, {useContext, useEffect} from 'react';
-import {useSelector, useDispatch} from "react-redux";
+import React, {useContext} from 'react';
+import {useSelector} from "react-redux";
 import {TranscriptContext} from "../App";
 import classnames from "classnames";
 import GenUtil from "../utils/GenUtil";
-import * as actions from "../store/musicRedux";
 
 const SearchedTranscript = () => {
     const searchString = useSelector(state => state.search)
