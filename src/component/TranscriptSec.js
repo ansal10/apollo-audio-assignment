@@ -33,29 +33,21 @@ const TranscriptSec = () => {
 
 
     return (
-        <div className={"ml-4"}>
+        <div className="ml-4 transcript-container">
             {transcripts.word_timings.map((personPara, index) => (
 
                 <div style={{
                     display: "flex", minHeight: "70px",
                     marginBottom: "20px"
                 }} className={classnames("", {"ml-5 ": index % 2 != 0})} key={index}>
-            <span
-                style={{
-                    marginRight: "10px",
-                    fontSize: "20px",
-                    color: "#656A6A",
-                }}
-                className={classnames({"first-person": index % 2 == 0}, {"second-person": index % 2 != 0})}
-            >
+            <span className={index % 2 ? "second-person" : "first-person"}>
               0:
                 {Math.floor(GenUtil.getNumericalTime(personPara[0].startTime)) > 9
                     ? Math.floor(GenUtil.getNumericalTime(personPara[0].startTime))
                     : "0" + Math.floor(GenUtil.getNumericalTime(personPara[0].startTime))}{" "}
             </span>
-                    <span
-                        style={{borderLeft: "1px solid #B5BDBD", height: "70px"}}
-                    ></span>
+                    <span className='vertical-line-separator' />
+
                     <span style={{fontSize: "18px", marginLeft: "10px"}}
                           className={classnames("", {"text-muted": index % 2 != 0})}>
               {personPara.map((word, i) => (

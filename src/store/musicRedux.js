@@ -41,13 +41,12 @@ const slice = createSlice({
             state.dSeconds = 0;
         },
         listened: (state, action) => {
-            if (state.seconds != action.payload.sec && state.dSeconds != action.payload.dSec) {
+            if (state.seconds !== action.payload.sec && state.dSeconds !== action.payload.dSec) {
                 state.seconds = action.payload.sec
                 state.dSeconds = Math.floor(action.payload.dSec * 1000)
             }
         },
         set: (state, action) => {
-
             state.seconds = action.payload.seco;
             state.dSeconds = action.payload.dse
         },
@@ -61,17 +60,14 @@ const slice = createSlice({
             }
         },
         speeding: (state, action) => {
-
             state.speed = 100 * parseFloat(action.payload)
         },
         searching: (state, action) => {
             state.searched = true
-            // state.result = 0
             state.search = action.payload
         },
         cleared: (state, action) => {
             state.search = ''
-            // state.result = 0
             state.searched = false
         }
     }
