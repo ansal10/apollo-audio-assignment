@@ -1,0 +1,11 @@
+.first-person{
+    color: mediumpurple !important;
+}
+.second-person{
+    color:  cornflowerblue !important;
+}
+.word:hover{
+    background-color: lightblue;
+    cursor: pointer;
+    transition: 0.8s;
+}

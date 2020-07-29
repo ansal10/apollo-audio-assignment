@@ -1,0 +1,26 @@
+$white: #EEF1F1;
+
+
+.App {
+  margin: 10px;
+}
+
+.downArrow{
+  border-radius: 6px;
+  margin-left: 15px;
+  padding: 0px 2px 0px 4px;
+  outline: none;
+
+  option {
+
+  }
+}
+
+.audio-player-container {
+  margin-bottom: 30px;
+  .time-span{
+    padding: 4px;
+    background-color: $white;
+  }
+}
+
