@@ -1,9 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
-import { DurationContext, TranscriptContext } from "../App";
-import { useSelector, useDispatch } from "react-redux";
-import { getNumericalTime } from "../utils/getNumericalTime";
-import * as actions from "../store/musicRedux";
+import React, {useContext} from "react";
+import {DurationContext, TranscriptContext} from "../App";
 import WaveLine from "../content/WaveLine";
+import GenUtil from "../utils/GenUtil";
 import MovingLine from "./MovingLine";
 import {WidthConstant} from "../constants/WidthConstant";
 
@@ -48,8 +46,8 @@ const Waveform = () => {
   const getFirstWavelineMargin = (startTime, endTime) => {
     let st;
 
-    st = (getNumericalTime(startTime) * WidthConstant) / duration - memory +1;
-    memory = (getNumericalTime(endTime) * WidthConstant) / duration;
+    st = (GenUtil.getNumericalTime(startTime) * WidthConstant) / duration - memory +1;
+    memory = (GenUtil.getNumericalTime(endTime) * WidthConstant) / duration;
     return st + "px";
   };
 
@@ -60,8 +58,8 @@ const Waveform = () => {
   const getSecondWavelineMargin = (startTime, endTime) => {
     let st;
 
-    st = (getNumericalTime(startTime) * WidthConstant) / duration - memory2+1;
-    memory2 = (getNumericalTime(endTime) * WidthConstant) / duration;
+    st = (GenUtil.getNumericalTime(startTime) * WidthConstant) / duration - memory2+1;
+    memory2 = (GenUtil.getNumericalTime(endTime) * WidthConstant) / duration;
     return st + "px";
   };
 

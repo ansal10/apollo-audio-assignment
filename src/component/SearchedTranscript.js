@@ -2,7 +2,7 @@ import React, {useContext, useEffect} from 'react';
 import {useSelector, useDispatch} from "react-redux";
 import {TranscriptContext} from "../App";
 import classnames from "classnames";
-import {getNumericalTime} from "../utils/getNumericalTime";
+import GenUtil from "../utils/GenUtil";
 import * as actions from "../store/musicRedux";
 
 const SearchedTranscript = () => {
@@ -27,9 +27,9 @@ const SearchedTranscript = () => {
                 className={classnames({"first-person": index % 2 == 0}, {"second-person": index % 2 != 0})}
             >
               0:
-                {Math.floor(getNumericalTime(personPara[0].startTime)) > 9
-                    ? Math.floor(getNumericalTime(personPara[0].startTime))
-                    : "0" + Math.floor(getNumericalTime(personPara[0].startTime))}{" "}
+                {Math.floor(GenUtil.getNumericalTime(personPara[0].startTime)) > 9
+                    ? Math.floor(GenUtil.getNumericalTime(personPara[0].startTime))
+                    : "0" + Math.floor(GenUtil.getNumericalTime(personPara[0].startTime))}{" "}
             </span>
                             <span
                                 style={{borderLeft: "1px solid #B5BDBD", height: "50px"}}

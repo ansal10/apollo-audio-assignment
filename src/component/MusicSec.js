@@ -4,7 +4,7 @@ import "react-h5-audio-player/lib/styles.css";
 import * as actions from "../store/musicRedux";
 import { useDispatch, useSelector } from "react-redux";
 import {DurationContext} from "../App";
-import {getFormatDateTime} from "../utils/getNumericalTime";
+import GenUtil from "../utils/GenUtil";
 
 const MusicSec=({audioFile}) =>{
     const {duration,setDuration} = useContext(DurationContext)
@@ -156,7 +156,7 @@ const MusicSec=({audioFile}) =>{
           ref={audioRef}
           style={{marginBottom:"20px"}}
         />
-        <span className='time-span'>{getFormatDateTime(minutes, seconds)} / {getFormatDateTime(durationMinute, durationSecond)}</span>
+        <span className='time-span'>{GenUtil.getFormatDateTime(minutes, seconds)} / {GenUtil.getFormatDateTime(durationMinute, durationSecond)}</span>
       </div>
 
 

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { getNumericalTime } from "../utils/getNumericalTime";
+import GenUtil from "../utils/GenUtil";
 import { DurationContext } from "../App";
 import { WidthConstant } from "../constants/WidthConstant";
 import { useSelector } from "react-redux";
@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 const WaveLine = (props) => {
   const getWidth = (startTime, EndTime) => {
     let s, p;
-    s = getNumericalTime(EndTime) - getNumericalTime(startTime);
+    s = GenUtil.getNumericalTime(EndTime) - GenUtil.getNumericalTime(startTime);
     p = (s / duration) * WidthConstant;
     return p + "px";
   };
@@ -28,7 +28,7 @@ const WaveLine = (props) => {
     >
       {arr.map((a, index) => (
         <span key={index}>
-          {time > (getNumericalTime(props.startTime)+(index/10))
+          {time > (GenUtil.getNumericalTime(props.startTime)+(index/10))
               ? (
                   <div
                       style={{
