@@ -29,27 +29,12 @@ const MovingLine = () => {
         dispatch(actions.set({seco: second, dse: dSecond}));
     };
     return (
-        <div
-            style={{
-                borderRight: "1px solid #B5BDBD",
-                opacity: "40%",
-                borderLeft: "1px solid #B5BDBD",
-                height: "80px",
-                width: WidthConstant,
-                position: "absolute",
-                top: "172px",
-                left: "170px",
-                cursor: "pointer"
-            }}
+        <div className='moving-line-container'
             onClick={getWaveTime}
         >
-            <div
+            <div className='moving-line'
                 style={{
-                    borderRight: "2px solid cornflowerblue",
                     width: percent,
-                    height: "80px",
-                    backgroundColor: "#96D3FD",
-                    opacity: "40%",
                 }}
             ></div>
         </div>

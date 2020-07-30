@@ -1,2 +1,29 @@
 @import "scss/Base";
 @import "src/scss/Transcript";
+
+
+.moving-line-container {
+  border-right: 1px solid $gray;
+  opacity: 40%;
+  border-left: 1px solid $gray;
+  height: 80px;
+  width: 700px;
+  position: absolute;
+  top: 172px;
+  left: 170px;
+  cursor: pointer;
+
+  .moving-line {
+    border-right: 2px solid cornflowerblue;
+    height: 80px;
+    background-color: $blue;
+    opacity: 40%;
+  }
+}
+
+.search-transcript {
+    .gray-box {
+      border-left: 1px solid $gray;
+      height: 50px;
+    }
+}

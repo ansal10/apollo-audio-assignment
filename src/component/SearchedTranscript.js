@@ -8,31 +8,18 @@ const SearchedTranscript = () => {
     const searchString = useSelector(state => state.search)
     const transcripts = useContext(TranscriptContext);
 
-
     return (
-        <div className={"ml-4"}>
+        <div className={"search-transcript ml-4"}>
             {transcripts.word_timings.map((personPara, index) => (
                 <div key={index}>
                     {transcripts.transcript_text[index].includes(searchString) ?
                         <div style={{display: "flex", minHeight: "70px"}}
-                             className={classnames("", {"ml-5 ": index % 2 != 0})} key={index}>
+                             className={classnames("", {"ml-5 ": index % 2 !== 0})} key={index}>
 
-            <span
-                style={{
-                    marginRight: "10px",
-                    fontSize: "20px",
-                    color: "#656A6A",
-                }}
-                className={classnames({"first-person": index % 2 == 0}, {"second-person": index % 2 != 0})}
-            >
-              0:
-                {Math.floor(GenUtil.getNumericalTime(personPara[0].startTime)) > 9
-                    ? Math.floor(GenUtil.getNumericalTime(personPara[0].startTime))
-                    : "0" + Math.floor(GenUtil.getNumericalTime(personPara[0].startTime))}{" "}
-            </span>
-                            <span
-                                style={{borderLeft: "1px solid #B5BDBD", height: "50px"}}
-                            ></span>
+                            <span className={index % 2 ? "second-person" : "first-person"}>
+                                {GenUtil.getFormatDateTime(0, GenUtil.getNumericalTime(personPara[0].startTime))}
+                            </span>
+                            <span className='gray-box'/>
                             <span style={{fontSize: "18px", marginLeft: "10px"}}
                                   className={classnames("", {"text-muted": index % 2 != 0})}>
               {personPara.map((word, i) => (
