@@ -23,7 +23,7 @@ const SearchTranscript = () => {
         setResult(result1);
     }, [searchString]);
     return (
-        <div style={{margin: "0 0 20px 40px", display: "flex"}}>
+        <div className='search-transcript'>
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
@@ -31,22 +31,22 @@ const SearchTranscript = () => {
                 }}
             >
                 <input
+                    className='search-input'
                     placeholder={"Search call typescript"}
-                    style={{paddingLeft: "40px", border: "1px solid #D9DDE1", borderRadius: "3px"}}
                     onChange={(e) => setSearchValue(e.target.value)}
                     value={searchValue}
                 />
             </form>
             <img
+                className='search-icon'
                 src={"/img/icon-search.png"}
-                style={{position: "absolute", top: "310px", left: "70px"}}
             />
             {search ? (
-                <span style={{marginLeft: "10px"}}>
+                <span className='result-span'>
           {result} results
           <span
               onClick={() => dispatch(actions.cleared())}
-              style={{marginLeft: "10px", color: "#6BABEC", cursor: "pointer"}}
+              className='clear-search'
           >
             {" "}Clear Search
           </span>

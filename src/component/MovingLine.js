@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import * as actions from "../store/musicRedux";
 import {DurationContext} from "../App";
 import {useDispatch, useSelector} from "react-redux";
-import {WidthConstant} from "../constants/WidthConstant";
+import Constants from "../constants/Constants";
 
 const MovingLine = () => {
     const {duration, setDuration} = useContext(DurationContext);
@@ -22,7 +22,7 @@ const MovingLine = () => {
 
 
     const getWaveTime = (e) => {
-        const waveTime = e.nativeEvent.offsetX / WidthConstant;
+        const waveTime = e.nativeEvent.offsetX / Constants.WidthConstant;
         const audioTime = waveTime * duration;
         const second = Math.floor(audioTime);
         const dSecond = Math.round((audioTime - Math.floor(audioTime)) * 10) * 100;
@@ -30,13 +30,13 @@ const MovingLine = () => {
     };
     return (
         <div className='moving-line-container'
-            onClick={getWaveTime}
+             onClick={getWaveTime}
         >
             <div className='moving-line'
-                style={{
-                    width: percent,
-                }}
-            ></div>
+                 style={{
+                     width: percent,
+                 }}
+            />
         </div>
     );
 };

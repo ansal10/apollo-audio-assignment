@@ -9,7 +9,7 @@ const SearchedTranscript = () => {
     const transcripts = useContext(TranscriptContext);
 
     return (
-        <div className={"search-transcript ml-4"}>
+        <div className={"searched-transcript ml-4"}>
             {transcripts.word_timings.map((personPara, index) => (
                 <div key={index}>
                     {transcripts.transcript_text[index].includes(searchString) ?
@@ -20,22 +20,21 @@ const SearchedTranscript = () => {
                                 {GenUtil.getFormatDateTime(0, GenUtil.getNumericalTime(personPara[0].startTime))}
                             </span>
                             <span className='gray-box'/>
-                            <span style={{fontSize: "18px", marginLeft: "10px"}}
-                                  className={classnames("", {"text-muted": index % 2 != 0})}>
-              {personPara.map((word, i) => (
-                  <span key={i}>
-                      <a>
-                          {word.word.toLowerCase().includes(searchString.toLowerCase()) ?
-                              <span style={{backgroundColor: "orange"}}>
-                        {word.word}
-                      </span> : <span>
-                        {word.word}
-                      </span>}{" "}
-                      </a>
+                            <span className={`muted-text-span ${index % 2 ? "text-muted" : ""}`}>
+                              {personPara.map((word, i) => (
+                                  <span key={i}>
+                                      <a>
+                                          {word.word.toLowerCase().includes(searchString.toLowerCase()) ?
+                                              <span style={{backgroundColor: "orange"}}>
+                                        {word.word}
+                                      </span> : <span>
+                                        {word.word}
+                                      </span>}{" "}
+                                      </a>
 
-                </span>
-              ))}
-            </span>
+                            </span>
+                              ))}
+                            </span>
                         </div> : null}</div>
                 // :null}
             ))}

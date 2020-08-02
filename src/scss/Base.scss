@@ -1,6 +1,8 @@
 $white: #EEF1F1;
 $gray: #B5BDBD;
 $blue: #96D3FD;
+$white-light: #D9DDE1;
+$light-blue: #6BABEC;
 
 .App {
   margin: 10px;
@@ -32,5 +34,21 @@ $blue: #96D3FD;
     border-left: 1px solid $gray;
     height: 70px;
   }
+
+  .transcript-inner-container {
+    display: flex;
+    min-height: 70px;
+    margin-bottom: 20px;
+
+    .word-container {
+      font-size: 18px;
+      margin-left: 10px;
+    }
+  }
+
+  .share {
+    color: $light-blue
+  }
+
 }
 

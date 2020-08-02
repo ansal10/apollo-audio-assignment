@@ -3,7 +3,6 @@ import GenUtil from "../utils/GenUtil";
 
 import {useDispatch, useSelector} from "react-redux";
 import * as actions from "../store/musicRedux";
-import classnames from "classnames"
 import {TranscriptContext} from "../App";
 
 const TranscriptSec = () => {
@@ -36,39 +35,35 @@ const TranscriptSec = () => {
         <div className="ml-4 transcript-container">
             {transcripts.word_timings.map((personPara, index) => (
 
-                <div style={{
-                    display: "flex", minHeight: "70px",
-                    marginBottom: "20px"
-                }} className={classnames("", {"ml-5 ": index % 2 != 0})} key={index}>
-            <span className={index % 2 ? "second-person" : "first-person"}>
-              0:
-                {Math.floor(GenUtil.getNumericalTime(personPara[0].startTime)) > 9
-                    ? Math.floor(GenUtil.getNumericalTime(personPara[0].startTime))
-                    : "0" + Math.floor(GenUtil.getNumericalTime(personPara[0].startTime))}{" "}
-            </span>
-                    <span className='vertical-line-separator' />
+                <div className={`transcript-inner-container ${index % 2 ? "ml-5" : ""}`} key={index}>
+                    <span className={index % 2 ? "second-person" : "first-person"}>
+                      0:
+                        {Math.floor(GenUtil.getNumericalTime(personPara[0].startTime)) > 9
+                            ? Math.floor(GenUtil.getNumericalTime(personPara[0].startTime))
+                            : "0" + Math.floor(GenUtil.getNumericalTime(personPara[0].startTime))}{" "}
+                    </span>
+                    <span className='vertical-line-separator'/>
 
-                    <span style={{fontSize: "18px", marginLeft: "10px"}}
-                          className={classnames("", {"text-muted": index % 2 != 0})}>
-              {personPara.map((word, i) => (
-                  <span onClick={() => onAudio(word.startTime)} key={i}>
-                  {time >= GenUtil.getNumericalTime(word.startTime) &&
-                  time < GenUtil.getNumericalTime(word.endTime) ? (
-                      <a className={"word"}>
-                      <span style={{backgroundColor: "lightblue"}}>
-                        {word.word}
-                      </span>{" "}
-                      </a>
-                  ) : (
-                      <a className={"word"}>
-                          <span>{word.word}</span>{" "}
-                      </a>
-                  )}
-                </span>
-              ))}
+                    <span className={`word-container ${index % 2 ? "text-muted" : ""}`}>
+                      {personPara.map((word, i) => (
+                          <span onClick={() => onAudio(word.startTime)} key={i}>
+                          {time >= GenUtil.getNumericalTime(word.startTime) &&
+                          time < GenUtil.getNumericalTime(word.endTime) ? (
+                              <a className={"word"}>
+                              <span style={{backgroundColor: "lightblue"}}>
+                                {word.word}
+                              </span>{" "}
+                              </a>
+                          ) : (
+                              <a className="word">
+                                  <span>{word.word}</span>{" "}
+                              </a>
+                          )}
+                        </span>
+                      ))}
 
-                        {share ? <div style={{color: "blue"}}>share</div> : null}
-            </span>
+                        {share ? <div className='share'>share</div> : null}
+                    </span>
 
                 </div>
             ))}

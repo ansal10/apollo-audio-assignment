@@ -1,14 +1,14 @@
 import React, {useContext} from "react";
 import GenUtil from "../utils/GenUtil";
 import {DurationContext} from "../App";
-import {WidthConstant} from "../constants/WidthConstant";
+import Constants from "../constants/Constants";
 import {useSelector} from "react-redux";
 
 const WaveLine = (props) => {
     const getWidth = (startTime, EndTime) => {
         let s, p;
         s = GenUtil.getNumericalTime(EndTime) - GenUtil.getNumericalTime(startTime);
-        p = (s / duration) * WidthConstant;
+        p = (s / duration) * Constants.WidthConstant;
         return p + "px";
     };
     const seconds = useSelector((state) => state.seconds);
@@ -20,37 +20,25 @@ const WaveLine = (props) => {
     const arr = [1, 2, 3, 4, 5];
     return (
         <div
+            className='wave-line-container'
             style={{
                 maxWidth: getWidth(props.startTime, props.endTime),
-                display: "flex",
-                overflow: "hidden",
             }}
         >
             {arr.map((a, index) => (
                 <span key={index}>
           {time > (GenUtil.getNumericalTime(props.startTime) + (index / 10))
               ? (
-                  <div
-                      style={{
-                          borderLeft: `2px solid #B5BDBD`,
-                          paddingBottom: "4px",
-                          paddingTop: "6px",
-                          minHeight: "40px",
-                          marginRight: "2px",
-                      }}
-                      key={a}
-                  ></div>
+                  <div className='gray-bar'
+                       key={a}
+                  />
               ) : (
-                  <div
+                  <div className='gray-bar'
                       style={{
                           borderLeft: `2px solid ${props.colour}`,
-                          paddingBottom: "4px",
-                          paddingTop: "6px",
-                          minHeight: "40px",
-                          marginRight: "2px",
                       }}
                       key={a}
-                  ></div>
+                  />
               )}
         </span>
             ))}

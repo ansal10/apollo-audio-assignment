@@ -3,7 +3,7 @@ import {DurationContext, TranscriptContext} from "../App";
 import WaveLine from "../content/WaveLine";
 import GenUtil from "../utils/GenUtil";
 import MovingLine from "./MovingLine";
-import {WidthConstant} from "../constants/WidthConstant";
+import Constants from "../constants/Constants";
 
 const Waveform = () => {
     const {duration, setDuration} = useContext(DurationContext);
@@ -41,8 +41,8 @@ const Waveform = () => {
     const getFirstWavelineMargin = (startTime, endTime) => {
         let st;
 
-        st = (GenUtil.getNumericalTime(startTime) * WidthConstant) / duration - memory + 1;
-        memory = (GenUtil.getNumericalTime(endTime) * WidthConstant) / duration;
+        st = (GenUtil.getNumericalTime(startTime) * Constants.WidthConstant) / duration - memory + 1;
+        memory = (GenUtil.getNumericalTime(endTime) * Constants.WidthConstant) / duration;
         return st + "px";
     };
 
@@ -53,8 +53,8 @@ const Waveform = () => {
     const getSecondWavelineMargin = (startTime, endTime) => {
         let st;
 
-        st = (GenUtil.getNumericalTime(startTime) * WidthConstant) / duration - memory2 + 1;
-        memory2 = (GenUtil.getNumericalTime(endTime) * WidthConstant) / duration;
+        st = (GenUtil.getNumericalTime(startTime) * Constants.WidthConstant) / duration - memory2 + 1;
+        memory2 = (GenUtil.getNumericalTime(endTime) * Constants.WidthConstant) / duration;
         return st + "px";
     };
 
@@ -73,7 +73,7 @@ const Waveform = () => {
                         {index % 2 == 0 ? (
                             <div
                                 className={" first-person"}
-                                style={{borderBottom: "1px solid #F1F4F6", maxWidth: WidthConstant, display: "flex"}}
+                                style={{borderBottom: "1px solid #F1F4F6", maxWidth: Constants.WidthConstant, display: "flex"}}
                             >
                                 {transcript.map((word, index) => (
                                     <div
