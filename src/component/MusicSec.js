@@ -48,7 +48,7 @@ const MusicSec = ({audioFile}) => {
          */
         let forwardButton = document.createElement("div")
         let forwardButtonImg = document.createElement("img");
-        forwardButtonImg.src = "/img/rotate-right.svg"
+        forwardButtonImg.src = "/apollo-audio-assignment/img/rotate-right.svg"
         forwardButtonImg.style.width = "20px"
         forwardButton.addEventListener("mouseover", function (event) {
             event.target.style.cursor = "pointer"
@@ -62,7 +62,7 @@ const MusicSec = ({audioFile}) => {
          */
         let rewindButton = document.createElement("div")
         let rewindButtonImg = document.createElement("img");
-        rewindButtonImg.src = "/img/rotate-left.svg"
+        rewindButtonImg.src = "/apollo-audio-assignment/img/rotate-left.svg"
         rewindButtonImg.style.width = "20px"
         rewindButton.addEventListener("mouseover", function (event) {
             event.target.style.cursor = "pointer"
@@ -108,7 +108,7 @@ const MusicSec = ({audioFile}) => {
         share button
          */
         let shareButton = document.createElement("img");
-        shareButton.src = "/img/share.png"
+        shareButton.src = "/apollo-audio-assignment/img/share.png"
         shareButton.addEventListener("mouseover", function (e) {
             e.target.style.cursor = "pointer"
         })

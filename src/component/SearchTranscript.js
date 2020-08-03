@@ -39,7 +39,7 @@ const SearchTranscript = () => {
             </form>
             <img
                 className='search-icon'
-                src={"/img/icon-search.png"}
+                src={"/apollo-audio-assignment/img/icon-search.png"}
             />
             {search ? (
                 <span className='result-span'>
