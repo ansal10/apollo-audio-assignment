@@ -15,7 +15,7 @@ const SearchTranscript = () => {
         let result1 = 0;
         for (let i = 0; i < transcripts.word_timings.length; i++) {
             for (let j = 0; j < transcripts.word_timings[i].length; j++) {
-                if (transcripts.word_timings[i][j].word.includes(searchString)) {
+                if (transcripts.word_timings[i][j].word.toLowerCase().includes(searchString.toLowerCase())) {
                     result1 = result1 + 1;
                 }
             }
@@ -27,7 +27,7 @@ const SearchTranscript = () => {
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
-                    dispatch(actions.searching(searchValue));
+                    dispatch(actions.searching(searchValue.toLowerCase()));
                 }}
             >
                 <input
